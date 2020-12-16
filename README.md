@@ -1,27 +1,28 @@
-# AngularRenderLargeList
+# Render Large Lists in Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
-## Development server
+## 1. Virtual Scrolling
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Use CDK's Scrolling module:
 
-## Code scaffolding
+```
+npm i @angular/cdk
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Import the module:
+```
+import { ScrollingModule } from '@angular/cdk/scrolling';
+@NgModule({
+ ...
+ imports: [ ScrollingModule, ...]
+})
+export class AppModule {}
+```
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Used:
+```
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+  <app-employee-item *cdkVirtualFor="let item of employees" [employee]="item" class="example-item">{{item}}</app-employee-item>
+</cdk-virtual-scroll-viewport>
+```

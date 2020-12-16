@@ -1,0 +1,6 @@
+<h1>Virtual Scrolling</h1>
+<div *ngIf="employees$ | async as employees">
+  <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+    <app-employee-item *cdkVirtualFor="let item of employees" [employee]="item" class="example-item">{{item}}</app-employee-item>
+  </cdk-virtual-scroll-viewport>
+</div>

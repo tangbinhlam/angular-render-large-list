@@ -1,4 +1,7 @@
-<div *ngIf="employees$ | async as employees">
-  <app-employee-item *ngFor="let item of employees" [employee]="item"></app-employee-item>
-</div>
+<nav>
+  <ul>
+    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/scrolling-cdk" routerLinkActive="active">Virtual Scrolling</a></li>
+  </ul>
+</nav>
 <router-outlet></router-outlet>
